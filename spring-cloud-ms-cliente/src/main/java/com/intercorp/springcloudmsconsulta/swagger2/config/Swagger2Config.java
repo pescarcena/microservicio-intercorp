@@ -24,9 +24,9 @@ public class Swagger2Config {
             .build().apiInfo(apiEndPointsInfo());
     }
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Microservicio Persona")
-            .description("Persona REST API")
-            .contact(new Contact("Erick Diaz", "www.javaguides.net", "jinkazamaups@gmail.com"))
+        return new ApiInfoBuilder().title("Microservicio de Cliente")
+            .description("Cliente REST API")
+            .contact(new Contact("Erick Diaz", "", "jinkazamaups@gmail.com"))
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .version("1.0.0")

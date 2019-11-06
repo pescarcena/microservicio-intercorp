@@ -6,10 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Model KPICliente")
 public class KPICliente {
 
-	@ApiModelProperty(value = "Promedio de la edad de los clientes")
+	@ApiModelProperty(value = "Promedio de la edad de los clientes", example = "42", position = 0)
 	private double promedioEdad;
 
-	@ApiModelProperty(value = "Desviacion estandar de la edad de los clientes")
+	@ApiModelProperty(value = "Desviacion estandar de la edad de los clientes", example = "2", position = 1)
 	private double desviacionEstandar;
 
 	public double getPromedioEdad() {

@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @RestController
-@Api(value = "Persona Administracion")
+@Api(value = "EndPoints para crear, listar y calcular los Clientes")
 public class ClienteController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -41,14 +41,14 @@ public class ClienteController {
 	}
 
 	@GetMapping(path = "/kpideclientes")
-	@ApiOperation(value = "Indicador clave de rendimiento", notes = "Muestra el promedio, desviacion estandar")
+	@ApiOperation(value = "Indicador clave de rendimiento", notes = "Muestra el promedio, desviacion estandar", response = KPICliente.class)
 	public KPICliente kpiClientes() {
 		logger.info("kpiClientes");
 		return clienteService.kpiClientes();
 	}
-	
+
 	@GetMapping(path = "/listclientes")
-	@ApiOperation(value = "Lista de clientes", notes = "Lista de clientes mas fecha probable de muerte")
+	@ApiOperation(value = "Lista de clientes", notes = "Lista de clientes mas fecha probable de muerte", response = List.class)
 	public List<Cliente> listClientes() {
 		logger.info("listClientes");
 		return clienteService.listClientes();

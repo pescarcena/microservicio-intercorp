@@ -2,6 +2,11 @@ package com.intercorp.springcloudmsconsulta.core.negocio.bean;
 
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,26 +18,32 @@ public class Cliente {
 
 	@JsonIgnore
 	private Integer codigo;
-	
-	@ApiModelProperty(value = "Los nombres del cliente", required = true)
+
+	@NotBlank
+	@ApiModelProperty(notes = "Los nombres del cliente", example = "Juan", required = true, position = 0)
 	private String nombre;
-	
-	@ApiModelProperty(value = "Los apellidos del cliente", required = true)
+
+	@NotBlank
+	@ApiModelProperty(notes = "Los apellidos del cliente", example = "Rojas", required = true, position = 1)
 	private String apellido;
-	
-	@ApiModelProperty(value = "Edad del cliente", required = true)
+
+	@NotNull
+	@Min(0)
+    @Max(100)
+	@ApiModelProperty(notes = "La edad del cliente", example = "45", required = true, position = 2)
 	private Integer edad;
-	
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@ApiModelProperty(value = "Fecha de nacimiento del cliente yyyy-MM-dd", required = true)
+
+	@NotNull
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@ApiModelProperty(notes = "Fecha de nacimiento del cliente yyyy-MM-dd", example = "1980-01-10", required = true, position = 3)
 	private Date fechanac;
-		
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@ApiModelProperty(value = "Fecha probable de muerte del cliente yyyy-MM-dd", required = true)
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@ApiModelProperty(notes = "Fecha probable de muerte del cliente yyyy-MM-dd", example = "2030-02-11", position = 4)
 	private Date fechamuerte;
-	
+
 	public Cliente() {
-		
+
 	}
 
 	public Cliente(Integer codigo, String nombre, String apellido, Integer edad, Date fechanac) {
